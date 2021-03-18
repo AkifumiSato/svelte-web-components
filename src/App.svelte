@@ -1,5 +1,5 @@
-<script>
-  export let name;
+<script lang="ts">
+  export const hello: string = 'world!!!';
 </script>
 
-<p>Hello {name}</p>
+<p>Hello {hello}</p>

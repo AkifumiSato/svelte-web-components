@@ -20,10 +20,6 @@ var app = (function () {
     function is_empty(obj) {
         return Object.keys(obj).length === 0;
     }
-
-    function append(target, node) {
-        target.appendChild(node);
-    }
     function insert(target, node, anchor) {
         target.insertBefore(node, anchor || null);
     }
@@ -33,16 +29,8 @@ var app = (function () {
     function element(name) {
         return document.createElement(name);
     }
-    function text(data) {
-        return document.createTextNode(data);
-    }
     function children(element) {
         return Array.from(element.childNodes);
-    }
-    function set_data(text, data) {
-        data = '' + data;
-        if (text.wholeText !== data)
-            text.data = data;
     }
 
     let current_component;
@@ -248,23 +236,16 @@ var app = (function () {
 
     function create_fragment(ctx) {
     	let p;
-    	let t0;
-    	let t1;
 
     	return {
     		c() {
     			p = element("p");
-    			t0 = text("Hello ");
-    			t1 = text(/*name*/ ctx[0]);
+    			p.textContent = `Hello ${/*hello*/ ctx[0]}`;
     		},
     		m(target, anchor) {
     			insert(target, p, anchor);
-    			append(p, t0);
-    			append(p, t1);
     		},
-    		p(ctx, [dirty]) {
-    			if (dirty & /*name*/ 1) set_data(t1, /*name*/ ctx[0]);
-    		},
+    		p: noop,
     		i: noop,
     		o: noop,
     		d(detaching) {
@@ -274,27 +255,26 @@ var app = (function () {
     }
 
     function instance($$self, $$props, $$invalidate) {
-    	let { name } = $$props;
-
-    	$$self.$$set = $$props => {
-    		if ("name" in $$props) $$invalidate(0, name = $$props.name);
-    	};
-
-    	return [name];
+    	const hello = "world!!!";
+    	return [hello];
     }
 
     class App extends SvelteComponent {
     	constructor(options) {
     		super();
-    		init(this, options, instance, create_fragment, safe_not_equal, { name: 0 });
+    		init(this, options, instance, create_fragment, safe_not_equal, { hello: 0 });
+    	}
+
+    	get hello() {
+    		return this.$$.ctx[0];
     	}
     }
 
     const app = new App({
-      target: document.body,
-      props: {
-        name: 'Daffodil',
-      },
+        target: document.body,
+        props: {
+            name: 'Daffodil',
+        },
     });
 
     return app;
