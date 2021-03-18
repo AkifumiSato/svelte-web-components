@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "rollup -c -w",
-    "serve": "sirv public",
+    "serve": "sirv public --dev",
     "start": "yarn dev & yarn serve"
   },
   "dependencies": {
@@ -13,14 +13,15 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^11.2.0",
-    "@rollup/plugin-typescript": "^8.2.0",
     "@tsconfig/svelte": "^1.0.10",
+    "esbuild": "^0.9.3",
     "rollup": "^2.41.5",
     "rollup-plugin-svelte": "^7.1.0",
     "sirv-cli": "^1.0.11",
     "svelte": "^3.35.0",
     "svelte-check": "^1.2.5",
     "svelte-preprocess": "^4.6.9",
+    "svelte-preprocess-esbuild": "^2.0.0",
     "typescript": "^4.2.3"
   }
 }

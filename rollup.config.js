@@ -1,7 +1,7 @@
 import svelte from 'rollup-plugin-svelte'
 import resolve from '@rollup/plugin-node-resolve'
 import sveltePreprocess from 'svelte-preprocess'
-import typescript from '@rollup/plugin-typescript'
+import { typescript } from 'svelte-preprocess-esbuild';
 
 export default {
   input: 'src/main.ts',
@@ -11,10 +11,18 @@ export default {
     name: 'app',
   },
   plugins: [
-    typescript({ sourceMap: false }),
     svelte({
       include: 'src/**/*.svelte',
-      preprocess: sveltePreprocess(),
+      preprocess: [
+        typescript({
+          target: 'es2020',
+          define: {
+            'process.browser': 'true'
+          }
+        }),
+        // avoid double compile
+        sveltePreprocess({ typescript: false }),
+      ],
     }),
     resolve({ browser: true }),
   ],
