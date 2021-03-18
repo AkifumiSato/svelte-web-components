@@ -1,5 +1,7 @@
 <script lang="ts">
-  export const hello: string = 'world!!!';
+  export let count = 0;
+  const handleClick = () => count++
 </script>
 
-<p>Hello {hello}</p>
+<p>count is {count}</p>
+<button on:click={handleClick}>button</button>
