@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "rollup -c -w",
     "serve": "sirv public --dev",
-    "start": "yarn dev & yarn serve"
+    "start": "yarn dev & yarn serve",
+    "lint": "eslint --ext ts,svelte src/",
+    "fix": "eslint --ext './src/**/*.{ts,svelte}' --fix"
   },
   "dependencies": {
     "tslib": "^2.1.0"
@@ -14,7 +16,11 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^11.2.0",
     "@tsconfig/svelte": "^1.0.10",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
     "esbuild": "^0.9.3",
+    "eslint": "^7.22.0",
+    "eslint-plugin-svelte3": "^3.1.2",
     "rollup": "^2.41.5",
     "rollup-plugin-svelte": "^7.1.0",
     "sirv-cli": "^1.0.11",
