@@ -8,7 +8,15 @@
     "serve": "sirv public --dev",
     "start": "yarn dev & yarn serve",
     "lint": "eslint --ext ts,svelte src/",
-    "fix": "eslint --ext './src/**/*.{ts,svelte}' --fix"
+    "fix": "eslint --ext ts,svelte src/ --fix --max-warnings=0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,svelte}": "eslint --fix --max-warnings=0"
   },
   "dependencies": {
     "tslib": "^2.1.0"
@@ -21,6 +29,8 @@
     "esbuild": "^0.9.3",
     "eslint": "^7.22.0",
     "eslint-plugin-svelte3": "^3.1.2",
+    "husky": "4.3.8",
+    "lint-staged": "^10.5.4",
     "rollup": "^2.41.5",
     "rollup-plugin-svelte": "^7.1.0",
     "sirv-cli": "^1.0.11",

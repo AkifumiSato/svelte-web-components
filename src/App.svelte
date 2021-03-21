@@ -1,6 +1,6 @@
 <script lang="ts">
   export let count = 0;
-  const handleClick = () => count++
+  const handleClick = () => count++;
 </script>
 
 <p>count is {count}</p>
