@@ -1,5 +1,5 @@
-# Svelte web components sample
+# Svelte web components example
 
 ## todo
-- [] commit hooks
-- [] eslint, prettier
+
+- [ ] eslint, prettier
