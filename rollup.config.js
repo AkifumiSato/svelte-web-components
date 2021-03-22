@@ -12,9 +12,10 @@ export default {
   plugins: [
     svelte({
       include: 'src/**/*.svelte',
-      preprocess: [
-        sveltePreprocess(),
-      ],
+      preprocess: [sveltePreprocess()],
+      compilerOptions: {
+        customElement: true,
+      },
     }),
     resolve({ browser: true }),
   ],

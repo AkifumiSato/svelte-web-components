@@ -7,7 +7,7 @@
     "dev": "rollup -c -w",
     "serve": "sirv public --dev",
     "start": "yarn dev & yarn serve",
-    "lint": "eslint --ext ts,svelte src/",
+    "lint": "eslint --ext ts,svelte src/ --max-warnings=0",
     "fix": "eslint --ext ts,svelte src/ --fix --max-warnings=0"
   },
   "husky": {

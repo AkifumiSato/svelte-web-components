@@ -1,3 +1,5 @@
+<svelte:options tag="my-component" />
+
 <script lang="ts">
   export let count = 0
   const handleClick = () => count++
