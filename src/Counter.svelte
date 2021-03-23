@@ -1,4 +1,4 @@
-<svelte:options tag="my-component" />
+<svelte:options tag="svelte-counter" />
 
 <script lang="ts">
   export let count = 0
