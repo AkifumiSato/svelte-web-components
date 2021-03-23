@@ -1,1 +1,1 @@
-import './Counter.svelte'
+import './components/Counter.svelte'
